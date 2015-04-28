@@ -51,9 +51,9 @@ int main(int argc, char* argv[])
 		res = hid_read(handle, bufr, 8);
 		if (bufr[0] == 1)
 		{
-			accel[i][0] = combine(bufr[1], bufr[2]);
-			accel[i][1] = combine(bufr[3], bufr[4]);
-			accel[i][2] = combine(bufr[5], bufr[6]);
+			accel[i][0] = combine(bufr[2], bufr[1]);
+			accel[i][1] = combine(bufr[4], bufr[3]);
+			accel[i][2] = combine(bufr[6], bufr[5]);
 			i = i + 1;
 		}
 	};
