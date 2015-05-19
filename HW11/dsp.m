@@ -1,0 +1,12 @@
+close all;
+clear all;
+z = importdata('zaccels.txt');
+z = transpose(z);
+Z = fft(z);
+figure(1);
+plot(z);
+xlabel('sample number');
+ylabel('Z accleration (g)');
+title('Z acceleration plot');
+figure(2);
+plotFFT(z);
