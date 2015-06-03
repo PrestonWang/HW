@@ -23,7 +23,7 @@
 #pragma config WDTPS = PS1048576 // slowest wdt
 #pragma config WINDIS = OFF // no wdt window
 #pragma config FWDTEN = OFF // wdt off by default
-#pragma config FWDTWINSZ = WISZ_25 // wdt window at 25%
+//#pragma config FWDTWINSZ = WISZ_25 // wdt window at 25%
 
 // DEVCFG2 - get the CPU clock to 40MHz
 #pragma config FPLLIDIV = DIV_2 // divide input clock to be in range 4-5MHz
