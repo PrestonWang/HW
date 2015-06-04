@@ -70,14 +70,20 @@ int main() {
     TRISBbits.TRISB13 = 1;
     INT4Rbits.INT4R = 0b0100;
     
-    // Set up B12 as phase select
-    TRISBbits.TRISB9 = 0;
-    LATBbits.LATB9 = 0;
+    // Set up A1 as phase select (right wheel)
+    ANSELAbits.ANSA1 = 0;
+    TRISAbits.TRISA1 = 0;
+    LATAbits.LATA1 = 1;
 
-    // Set up B7 as phase select
+    // Set up B7 as phase select (left wheel
+    ANSELBbits.ANSB0 = 0;
+    TRISBbits.TRISB0 = 0;
+    LATBbits.LATB0 = 0;
 
-    TRISBbits.TRISB7 = 0;
-    LATBbits.LATB7 = 0;
+    // B15 for logic 3.3 v
+    ANSELBbits.ANSB15 = 0;
+    TRISBbits.TRISB15 = 0;
+    LATBbits.LATB15 = 1;
 
     // set Timer2 at 1kHz
     T2CONbits.T32 = 0;
@@ -97,15 +103,15 @@ int main() {
     OC2R = 2500;
     OC2CONbits.ON = 1;
 
-    // Set up B15 as OC1a
-    ANSELBbits.ANSB15 = 0;
-    TRISBbits.TRISB15 = 0;
-    RPB15Rbits.RPB15R = 0b0101;
-    OC1CONbits.OCTSEL = 0;
-    OC1CONbits.OCM = 0b110;
-    OC1RS = 2500; // 50% duty cycle
-    OC1R = 2500;
-    OC1CONbits.ON = 1;
+    // Set up B9 as OC3a
+    //ANSELBbits.ANSB9 = 0;
+    TRISBbits.TRISB9 = 0;
+    RPB9Rbits.RPB9R = 0b0101;
+    OC3CONbits.OCTSEL = 0;
+    OC3CONbits.OCM = 0b110;
+    OC3RS = 2500; // 50% duty cycle
+    OC3R = 2500;
+    OC3CONbits.ON = 1;
 
     // set up A0 as AN0
 
@@ -113,11 +119,11 @@ int main() {
 
     if (PORTBbits.RB13 == 1) {
         OC2RS = 5000;
-        OC1RS = 5000;
+        OC3RS = 5000;
     }
     else {
-        OC2RS = 2500;
-        OC1RS = 2500;
+        OC2RS =0;
+        OC3RS = 0;
     }
     }
     // wait for half a second, setting LED brightness to pot angle while waiting
