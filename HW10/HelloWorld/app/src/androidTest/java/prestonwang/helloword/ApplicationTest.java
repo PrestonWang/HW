@@ -1,4 +1,4 @@
-package prestonwang.helloworld;
+package prestonwang.helloword;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
